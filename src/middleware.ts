@@ -1,8 +1,8 @@
 "use strict";
 
-const path = require("path");
-const mime = require("node-mime");
-const transformFile = require("./transformFile");
+import * as path from "path";
+import * as mime from "mime-types";
+import { transformFile } from "./transformFile";
 
 export function middleware(options) {
     return async function(req, res, next) {
