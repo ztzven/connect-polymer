@@ -5,3 +5,4 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./middleware"));
 __export(require("./getFile"));
+__export(require("./transformFile"));

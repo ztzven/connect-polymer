@@ -36,14 +36,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var path = require("path");
-var mime = require("node-mime");
+var mime = require("mime-types");
 var config_js_1 = require("web-component-tester/runner/config.js");
 var getFile_1 = require("./getFile");
 var transformHtml_1 = require("./transformHtml");
 var transformJs_1 = require("./transformJs");
 function transformFile(userAgent, absolutePath, options) {
     return __awaiter(this, void 0, void 0, function () {
-        var packageName, content, mimeType, componentDir;
+        var packageName, content, extname, mimeType, componentDir;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -54,7 +54,11 @@ function transformFile(userAgent, absolutePath, options) {
                     if (!content) {
                         return [2 /*return*/, ""];
                     }
-                    mimeType = mime.lookup(path.extname(absolutePath));
+                    extname = path.extname(absolutePath);
+                    if (!extname) {
+                        return [2 /*return*/, ""];
+                    }
+                    mimeType = mime.lookup(extname);
                     componentDir = path.join(options.root, options.npm ? "node_modules" : "bower_components");
                     switch (mimeType) {
                         case "text/html":

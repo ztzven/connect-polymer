@@ -37,17 +37,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var crypto = require("crypto");
 var fs = require("fs");
-var mime = require("node-mime");
+var mime = require("mime-types");
 var path = require("path");
 var scriptHook = require("html-script-hook");
 var cache = {};
 function getFile(absolutePath) {
     return __awaiter(this, void 0, void 0, function () {
-        var pathMime, stats, fileHash, content;
+        var extname, pathMime, stats, fileHash, content;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    pathMime = mime.lookup(path.extname(absolutePath));
+                    extname = path.extname(absolutePath);
+                    if (!extname) {
+                        return [2 /*return*/, ""];
+                    }
+                    ;
+                    pathMime = mime.lookup(extname);
                     return [4 /*yield*/, new Promise(function (resolve, reject) { return fs.stat(absolutePath, function (err, stats) { return err ? reject(err) : resolve(stats); }); })];
                 case 1:
                     stats = _a.sent();

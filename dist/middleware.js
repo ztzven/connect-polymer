@@ -36,8 +36,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var path = require("path");
-var mime = require("node-mime");
-var transformFile = require("./transformFile");
+var mime = require("mime-types");
+var transformFile_1 = require("./transformFile");
 function middleware(options) {
     return function (req, res, next) {
         return __awaiter(this, void 0, void 0, function () {
@@ -47,7 +47,7 @@ function middleware(options) {
                     case 0:
                         absolutePath = path.join(options.root, req.baseUrl);
                         userAgent = req.get("user-agent");
-                        return [4 /*yield*/, transformFile(userAgent, absolutePath, options)];
+                        return [4 /*yield*/, transformFile_1.transformFile(userAgent, absolutePath, options)];
                     case 1:
                         content = _a.sent();
                         if (!content) {

@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var browserCapabilities = require("browser-capabilities");
-var polymerBuild = require("polymer-build");
 var getCompileTarget = require("polyserve/lib/get-compile-target.js");
+var polymerBuild = require("polymer-build");
 function transformJs(userAgent, content, packageName, absolutePath, npm, rootDir, componentDir) {
     var capabilities = browserCapabilities.browserCapabilities(userAgent);
     var compileTarget = getCompileTarget.getCompileTarget(capabilities, "auto");
