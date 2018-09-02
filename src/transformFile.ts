@@ -1,7 +1,7 @@
 "use strict";
 
 import * as path from "path";
-import * as mime from "node-mime";
+import * as mime from "mime-types";
 import { getPackageName } from "web-component-tester/runner/config.js";
 
 import { getFile } from "./getFile";
@@ -20,7 +20,9 @@ export async function transformFile(userAgent: string, absolutePath: string, opt
     const packageName = getPackageName(options);
     let content = await getFile(absolutePath);
     if (!content) { return ""; }
-    const mimeType = mime.lookup(path.extname(absolutePath));
+    const extname = path.extname(absolutePath);
+    if (!extname) { return ""; }
+    const mimeType = mime.lookup(extname);
     const componentDir = path.join(options.root, options.npm ? "node_modules" : "bower_components");
     switch (mimeType) {
         case "text/html":
