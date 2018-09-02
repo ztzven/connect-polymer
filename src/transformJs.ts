@@ -1,8 +1,8 @@
 "use strict";
 
 import * as browserCapabilities from "browser-capabilities";
-import * as polymerBuild from "polymer-build";
 import * as getCompileTarget from "polyserve/lib/get-compile-target.js";
+import * as polymerBuild from "polymer-build";
 
 export function transformJs(userAgent: string, content: string, packageName: string, absolutePath: string, npm: boolean, rootDir: string, componentDir: string) {
     const capabilities = browserCapabilities.browserCapabilities(userAgent);
