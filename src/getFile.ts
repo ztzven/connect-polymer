@@ -2,15 +2,16 @@
 
 import * as crypto from "crypto";
 import * as fs from "fs";
-import * as mime from "node-mime";
+import * as mime from "mime-types";
 import * as path from "path";
 import * as scriptHook from "html-script-hook";
 
 const cache = {};
 
 export async function getFile(absolutePath): Promise<string> {
-    const pathMime = mime.lookup(path.extname(absolutePath));
-
+    const extname = path.extname(absolutePath);
+    if (!extname) { return "" };
+    const pathMime = mime.lookup(extname);
     const stats = await new Promise<fs.Stats>((resolve, reject) => fs.stat(absolutePath, (err, stats) => err ? reject(err) : resolve(stats)));
     if (stats.isFile()) {
         const fileHash = crypto.createHash("SHA256").update(`${absolutePath}/${stats.mtime}`).digest("base64"); 
