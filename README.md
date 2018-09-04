@@ -1,13 +1,13 @@
-# Polymer Express Middleware
+# Polymer Connect
 
-This middleware implements polymer build for a given directory with an express Router handler syntax, output is similar to that of `polymer serve`
+A middleware implementation of polymer build which produces similar results to that of `polymer serve`
 
 ## Example implementation
 
 ```javascript
 const path = require("path");
-const polymerExpress = require("polymer-express-middleware");
-const polymerMiddlewareOptions = {
+const polymer = require("polymer-connect");
+const polymerOptions = {
     root: path.join(__dirname, "."),
     npm: true,
     ignoreBasePath: false
@@ -15,10 +15,12 @@ const polymerMiddlewareOptions = {
 
 const app = require("express")();
 
-app.use("*", polymerExpress.middleware(polymerMiddlewareOptions));
+// Middleware for Modules
+app.use("*", polymer.middleware(polymerOptions));
+// Fall through to serving index.html on 404
 app.use("*", async function(req, res, next) {
     const userAgent = req.get("user-agent");
-    const content = await polymerExpress.transformFile(userAgent, path.join(__dirname, "index.html"), polymerMiddlewareOptions);
+    const content = await polymer.transformFile(userAgent, path.join(__dirname, "index.html"), polymerOptions);
     res.type(".html");
     return res.send(content);
 });
