@@ -1,4 +1,4 @@
 #!/bin/bash
 
-rm -rf dist
-tsc
+rm -rf ./dist
+tsc --skipLibCheck
