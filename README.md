@@ -8,7 +8,7 @@ A middleware implementation of [polymer-build](https://github.com/Polymer/tools/
 const path = require("path");
 const polymer = require("connect-polymer");
 const polymerOptions = {
-    root: path.join(__dirname, "."),
+    root: path.join(__dirname, "."), // Path to your polymer app (or component) folder
     npm: true,
     ignoreBasePath: false
 };
@@ -25,5 +25,5 @@ app.use("*", async function(req, res, next) {
     return res.send(content);
 });
 
-app.listen(80)
+app.listen(80);
 ```
