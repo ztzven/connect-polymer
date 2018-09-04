@@ -7,13 +7,14 @@
         "outDir": "dist",
         "strict": true,
         "moduleResolution": "node",
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "noImplicitAny": false
     },
     "exclude": [
         "node_modules",
         "dist"
     ],
     "include": [
-        "src/**/*"
+        "src/**/*.ts"
     ]
 }
