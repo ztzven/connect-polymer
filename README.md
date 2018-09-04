@@ -1,6 +1,6 @@
 # Connect Polymer
 
-A middleware implementation of polymer build which produces similar results to that of `polymer serve`
+A middleware implementation of [polymer-build](https://github.com/Polymer/tools/tree/master/packages/build) which produces similar results to that of `polymer serve`
 
 ## Example implementation
 
