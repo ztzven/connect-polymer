@@ -1,10 +1,11 @@
 {
-    "name": "polymer-express-middleware",
-    "version": "0.1.1",
+    "name": "connect-polymer",
+    "version": "0.2.0",
     "authors": [
         "Steven French <steven@frenchy.nz>"
     ],
     "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "dependencies": {
         "browser-capabilities": "^1.1.2",
         "html-script-hook": "^1.0.0",
