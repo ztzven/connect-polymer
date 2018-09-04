@@ -18,6 +18,7 @@ interface IMiddlewareOptions {
 
 export async function transformFile(userAgent: string, absolutePath: string, options: IMiddlewareOptions): Promise<string> {
     const packageName = getPackageName(options);
+    if (!packageName) { return ""; }
     let content = await getFile(absolutePath);
     if (!content) { return ""; }
     const extname = path.extname(absolutePath);
