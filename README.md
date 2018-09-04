@@ -1,4 +1,4 @@
-# Polymer Connect
+# Connect Polymer
 
 A middleware implementation of polymer build which produces similar results to that of `polymer serve`
 
@@ -6,7 +6,7 @@ A middleware implementation of polymer build which produces similar results to t
 
 ```javascript
 const path = require("path");
-const polymer = require("polymer-connect");
+const polymer = require("connect-polymer");
 const polymerOptions = {
     root: path.join(__dirname, "."),
     npm: true,
