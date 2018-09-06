@@ -3,8 +3,9 @@
 import * as path from "path";
 import * as mime from "mime-types";
 import { transformFile } from "./transformFile";
+import { IMiddlewareOptions } from "./IMiddlewareOptions";
 
-export function middleware(options) {
+export function middleware(options: IMiddlewareOptions) {
     return async function(req, res, next) {
         const absolutePath = path.join(options.root, req.baseUrl);
 

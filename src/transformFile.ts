@@ -7,14 +7,7 @@ import { getPackageName } from "web-component-tester/runner/config.js";
 import { getFile } from "./getFile";
 import { transformHtml } from "./transformHtml";
 import { transformJs } from "./transformJs";
-
-interface IMiddlewareOptions {
-    root: string;
-    ignoreBasePath: boolean;
-    exclude: Array<string>;
-    include: Array<string>;
-    npm: boolean;
-}
+import { IMiddlewareOptions } from "./IMiddlewareOptions";
 
 export async function transformFile(userAgent: string, absolutePath: string, options: IMiddlewareOptions): Promise<string> {
     const packageName = getPackageName(options);
