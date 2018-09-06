@@ -1,9 +1,13 @@
 {
     "name": "connect-polymer",
-    "version": "0.2.3",
+    "version": "0.2.4",
     "authors": [
         "Steven French <steven@frenchy.nz>"
     ],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:ztzven/connect-polymer.git"
+    },
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "dependencies": {
